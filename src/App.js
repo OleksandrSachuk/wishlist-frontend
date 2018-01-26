@@ -7,31 +7,35 @@ import Home from './components/home/Home';
 import Create from './components/create/Create';
 import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
+import Grid from 'material-ui/Grid';
+import Paper from 'material-ui/Paper';
 
 class App extends Component {
     render() {
         return (
             <div className="App">
-                <Container>
-                    <Row>
-                        <Col>
+                <Grid container spacing={0}>
+                    <Grid item xs={12}>
+                        <Paper>
                             <Header/>
-                        </Col>
-                    </Row>
-                </Container>
-                <Row>
-                    <Col xs="1">
-                        <aside>
+                        </Paper>
+                    </Grid>
+                </Grid>
+                <Grid container spacing={0}>
+                    <Grid item xs={3}>
+                        <Paper>
                             <Sidebar/>
-                        </aside>
-                    </Col>
-                    <Col xs="11">
-                        <main>
-                            <Route exact path="/" component={Home}/>
-                            <Route exact path="/create" component={Create}/>
-                        </main>
-                    </Col>
-                </Row>
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={9}>
+                        <Paper>
+                            <main>
+                                <Route exact path="/" component={Home}/>
+                                <Route exact path="/create" component={Create}/>
+                            </main>
+                        </Paper>
+                    </Grid>
+                </Grid>
             </div>
         );
     }
