@@ -1,3 +1,5 @@
 {
-  "extends": "airbnb"
+  "extends": "airbnb",
+  "flowtype-errors/show-errors": 2,
+  "plugins": ["flowtype-errors"]
 }
