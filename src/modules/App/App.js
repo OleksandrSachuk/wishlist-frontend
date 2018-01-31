@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
   whyDidYouUpdate(React)
 }
 
-const Root = ({ store }) => (
+const App = ({ store }) => (
   <Provider store={store}>
     <Router>
       <Route path="/" component={Main} />
@@ -18,8 +18,8 @@ const Root = ({ store }) => (
   </Provider>
 );
 
-Root.propTypes = {
+App.propTypes = {
   store: PropTypes.object.isRequired
 };
 
-export default Root;
+export default App;
