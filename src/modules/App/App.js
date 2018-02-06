@@ -4,7 +4,13 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Main } from '../Main';
 
-const Root = ({ store }) => (
+
+if (process.env.NODE_ENV !== 'production') {
+  const { whyDidYouUpdate } = require('why-did-you-update');
+  whyDidYouUpdate(React);
+}
+
+const App = ({ store }) => (
   <Provider store={store}>
     <Router>
       <Route path="/" component={Main} />
@@ -12,8 +18,8 @@ const Root = ({ store }) => (
   </Provider>
 );
 
-Root.propTypes = {
-  store: PropTypes.object.isRequired
+App.propTypes = {
+  store: PropTypes.object.isRequired,
 };
 
-export default Root;
+export default App;
