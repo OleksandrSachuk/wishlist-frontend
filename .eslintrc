@@ -1,5 +1,25 @@
 {
+  "root": true,
   "extends": "airbnb",
-  "flowtype-errors/show-errors": 2,
-  "plugins": ["flowtype-errors"]
+  "plugins": ["react", "flowtype-errors"],
+  "rules": {
+    "strict": 0,
+    "flowtype-errors/show-errors": 2
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "document": false
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "parser": "babel-eslint",
 }
