@@ -1,25 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
 import { whyDidYouUpdate } from 'why-did-you-update';
 import Main from '../Main';
-
 
 if (process.env.NODE_ENV !== 'production') {
   whyDidYouUpdate(React);
 }
 
-const App = ({ store }) => (
+const App = ({ store, history }) => (
   <Provider store={store}>
-    <Router>
-      <Route path="/" component={Main} />
-    </Router>
+    <BrowserRouter>
+      <ConnectedRouter history={history}>
+        <Switch>
+          <Route exact path="/" component={Main} />
+        </Switch>
+      </ConnectedRouter>
+    </BrowserRouter>
   </Provider>
 );
 
 App.propTypes = {
-  store: PropTypes.shape.isRequired,
+  history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 export default App;

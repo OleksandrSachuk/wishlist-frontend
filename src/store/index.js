@@ -6,7 +6,7 @@ import createHistory from 'history/createBrowserHistory';
 
 import rootReducer from '../reducers/reducers';
 
-export const history = createHistory();
+const history = createHistory();
 
 const initialState = {};
 const enhancers = [];
@@ -49,4 +49,7 @@ const store = createStore(
   composedEnhancers,
 );
 
-export default store;
+export {
+  history,
+  store,
+};
